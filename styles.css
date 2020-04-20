@@ -1,0 +1,569 @@
+/*@font-face {*/
+/*  font-family: 'Bayshore';*/
+/*  src: url('assets/Bayshore.ttf') format('truetype');*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*}*/
+
+@font-face {
+  font-family: 'Museo Cyrl';
+  src: url('assets/exljbris - Museo Cyrl 100.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Museo Cyrl';
+  src: url('assets/exljbris - Museo Cyrl 100 Italic.otf') format('opentype');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('assets/Montserrat-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  /*Other*/
+  /* background: rgb(62,62,62); */
+  background: linear-gradient(105deg, rgba(62,62,62,1) 0%, rgba(12,12,12,1) 70%);
+  color: white;
+  margin: 0;
+  /*Pixel Perfect*/
+  overflow: hidden;
+  /* background: url('Concept.png') no-repeat 100% 0; */
+  background-size: cover;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.curtains {
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  /* height: 100vh; */
+  z-index: 1;
+}
+
+.curtain {
+  background: white;
+  height: 100vh;
+  opacity: 0.3;
+  transition: height 0s linear 1s, width 1s ease-out;
+  width: 46vw;
+}
+
+.curtain--closed {
+  height: 0;
+  width: 0;
+}
+
+.main {
+  height: 100vh !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* background: url('Concept.png') no-repeat 100% 0; */
+  /* background: linear-gradient(105deg, rgba(62,62,62,1) 0%, rgba(12,12,12,1) 70%); */
+  background-size: contain;
+}
+
+.content {
+  /* height: 400px; */
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  margin-bottom: 6vw;
+  padding: 3vw 3vw 1.4vw 8vw;
+}
+
+nav a {
+  font-family: Museo Cyrl;
+  font-size: 19px;
+  font-style: italic;
+  margin-right: 57.5px;
+  margin-top: -9px;
+  z-index: 2;
+}
+
+nav a {
+  margin-left: -1.55vw;
+  font-family: Museo Cyrl;
+  font-size: 1vw;
+  font-style: italic;
+  margin-right: 4.5vw;
+  margin-top: -.7vw;
+  position: relative;
+  z-index: 1;
+}
+
+a:not(.logo)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: -.5vw;
+  background: #E6A116;
+  height: 0.16vw;
+  transition-property: right;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+a:hover::before {
+  right: 0;
+}
+
+.logo {
+  height: 2vw;
+  width: 11vw;
+  margin-right: 8vw;
+}
+
+.logo:hover .logo img{
+  opacity: 0%;
+}
+
+.logo:hover .logo--hover {
+  opacity: 100%;
+;
+}
+
+.logo img {
+  width: 11.5vw;
+  height: 5vw;
+  top: 0;
+  /*font-family: Bayshore;*/
+  /*font-size: 3.1vw;*/
+  /*font-style: normal;*/
+  margin-right: 7.1vw;
+  margin-top: -1.2vw;
+}
+
+.logo--hover {
+  opacity: 0;
+  position: absolute;
+  left: 0vw;
+  transition: opacity .3s linear;
+}
+
+.header {
+  margin-left: 4.5vw;
+}
+
+.header__title {
+  height: 18vw;
+  position: relative;
+}
+
+.header__image {
+  opacity: 0;
+  position: absolute;
+  top: 300px;
+  transition: top 1s linear, opacity .5s linear;
+}
+
+.header__image.show {
+  opacity: 1;
+  top: 0;
+  width: 31vw;
+  height: 18vw;
+}
+
+.header__leaf {
+  left: 525px;
+  opacity: 0;
+  position: absolute;
+  top: -30px;
+  transition: opacity .5s linear 1s, top .5s linear 1s, z-index 0s linear 1.4s;
+  z-index: 0;
+}
+
+.header__leaf.show {
+  opacity: 1;
+  top: -4.8vw;
+  left: 27vw;
+  width: 7.5vw;
+  height: 10vw;
+  z-index: 1;
+}
+
+.header__text-container {
+  height: 7vw;
+  margin-left: 14.5vw;
+  position: relative;
+  top: -3.6vw;
+}
+
+.header__text {
+  font-family: Museo Cyrl;
+  font-size: 1vw;
+  font-style: italic;
+  line-height: 1.9vw;
+  opacity: 0;
+  position: relative;
+  top: 170px;
+  transition: opacity .2s linear 1.5s, top .5s linear 1.5s;
+  width: 31vw;
+  z-index: 2;
+}
+
+.header__text.show {
+  opacity: 1;
+  top: 0;
+}
+
+.button__place {
+  position: relative;
+}
+
+.header__button {
+  background: transparent;
+  border: 3px solid #daa63b00;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  font-family: Montserrat-Regular;
+  font-size: 1.05vw;
+  margin-left: 8.7vw;
+  padding: 1.7vw 6vw 1.8vw 3.4vw;
+  position: relative;
+  transition: border .8s linear 2.3s;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.header__button.show {
+  border: 0.2vw solid #daa63b;
+}
+
+.header__button::before {
+  border-radius: 50px;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #E6A116;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition-property: transform;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+
+.header__button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__meat {
+  position: absolute;
+  left: 25vw;
+  top: -2.5vw;
+  z-index: 2;
+  height: 9.2vw;
+  width: 6vw;
+}
+
+.social {
+  font-size: 1.02vw;
+  margin-left: 7.4vw;
+  margin-top: auto;
+  margin-bottom: 3vh;
+}
+
+.social a {
+  font-family: Museo Cyrl;
+  font-style: italic;
+  margin-right: 2.5vw;
+  position: relative;
+}
+
+.social__hr {
+  border: 1px solid #8f8f8f;
+  display: inline-block;
+  margin: 0 0 0.3vw 4vw;
+  width: 13.4vw;
+}
+
+.pepper {
+  opacity: 0;
+  position: absolute;
+  right: 525px;
+  top: 190px;
+  transition: opacity .5s linear 1.8s, right .5s linear 1.8s;
+}
+
+.pepper.show {
+  opacity: 1;
+  right: 32.2vw;
+  top: 9.5vw;
+}
+
+.pepper.show img{
+  height: 37vw;
+  width: 25vw;
+}
+
+.food {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 1230px;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  right: -1000px;
+  top: -95px;
+  transition: right .5s linear, transform 2s ease-in-out;
+  width: 100%;
+}
+
+.food.show {
+  right: -20.7vw;
+  width: 64vw;
+  height: 66vw;
+  transform: rotate(170deg);
+}
+
+.food.show img {
+  width: 108vw;
+  height: 111vw;
+}
+
+.food:hover {
+  transform: rotate(360deg);
+}
+
+/*@media screen and (min-width: 1440px) and (max-width: 1919px) {*/
+/*  body {*/
+/*    !*background-size: contain;*!*/
+/*  }*/
+
+/*  .main {*/
+/*    height: 823px;*/
+/*  }*/
+
+/*  nav {*/
+/*    padding: 38px 0 0 111px;*/
+/*    margin-bottom: 92px;*/
+/*  }*/
+
+/*  nav a {*/
+/*    font-size: 1vw;*/
+/*    margin-right: 3vw;*/
+/*  }*/
+
+/*  .logo {*/
+/*    font-size: 3.1vw;*/
+/*    margin-right: 116px;*/
+/*  }*/
+
+/*  .header__image {*/
+/*    height: 249px;*/
+/*  }*/
+
+/*  .header {*/
+/*    margin-left: 4.2vw;*/
+/*  }*/
+
+/*  .header__title {*/
+/*    height: 269px;*/
+/*  }*/
+
+/*  .header__leaf {*/
+/*    left: 394px;*/
+/*    width: 108px;*/
+/*  }*/
+
+/*  .header__leaf.show {*/
+/*    top: -4.8vw;*/
+/*  }*/
+
+/*  .header__text {*/
+/*    font-size: 1vw;*/
+/*    line-height: 1.85vw;*/
+/*    width: 31vw;*/
+/*  }*/
+
+/*  .header__text-container {*/
+/*    height: 105px;*/
+/*    margin-left: 213px;*/
+/*  }*/
+
+/*  .header__button {*/
+/*    font-size: 15px;*/
+/*    padding: 25px 74px 24px 47px;*/
+/*    margin-left: 131px;*/
+/*  }*/
+
+/*  .button__meat {*/
+/*    left: 329px;*/
+/*    top: -54px;*/
+/*    width: 154px;*/
+/*  }*/
+
+/*  .button__place {*/
+/*    margin-top: -17px;*/
+/*  }*/
+
+/*  .pepper.show {*/
+/*    !* top: 136px; *!*/
+/*    !* right: 31vw; *!*/
+/*  }*/
+
+/*  .pepper img {*/
+/*    width: 381px;*/
+/*  }*/
+
+/*  .social {*/
+/*    margin-top: 141px;*/
+/*    margin-left: 106px;*/
+/*    font-size: 14.5px;*/
+/*  }*/
+
+/*  .social a {*/
+/*    margin-right: 38px;*/
+/*  }*/
+
+/*  .social__hr {*/
+/*    margin: 8px 0 4px 55px;*/
+/*    width: 194px;*/
+/*  }*/
+
+/*  .food img {*/
+/*    !* width: 1491px; *!*/
+/*  }*/
+
+/*  .food {*/
+/*    top: -218px;*/
+/*  }*/
+
+/*  .food.show {*/
+/*    !* right: -38vw; *!*/
+/*  }*/
+/*}*/
+
+/*!*================================*!*/
+/*@media screen and (min-width: 1024px) and (max-width: 1439px) {*/
+/*  body {*/
+/*    !*background-size: contain;*!*/
+/*  }*/
+
+/*  .main {*/
+/*    height: 823px;*/
+/*  }*/
+
+/*  nav {*/
+/*    padding: 38px 0 0 111px;*/
+/*    margin-bottom: 92px;*/
+/*  }*/
+
+/*  nav a {*/
+/*    font-size: 14px;*/
+/*    margin-right: 44px;*/
+/*  }*/
+
+/*  .logo {*/
+/*    font-size: 45px;*/
+/*    margin-right: 116px;*/
+/*  }*/
+
+/*  .header__image {*/
+/*    height: 249px;*/
+/*  }*/
+
+/*  .header {*/
+/*    margin-left: 4.2vw;*/
+/*  }*/
+
+/*  .header__title {*/
+/*    height: 269px;*/
+/*  }*/
+
+/*  .header__leaf {*/
+/*    left: 394px;*/
+/*    width: 108px;*/
+/*  }*/
+
+/*  .header__leaf.show {*/
+/*    top: -69px;*/
+/*  }*/
+
+/*  .header__text {*/
+/*    font-size: 14.4px;*/
+/*    line-height: 26px;*/
+/*    width: 448px;*/
+/*  }*/
+
+/*  .header__text-container {*/
+/*    height: 105px;*/
+/*    margin-left: 213px;*/
+/*  }*/
+
+/*  .header__button {*/
+/*    font-size: 15px;*/
+/*    padding: 25px 74px 24px 47px;*/
+/*    margin-left: 131px;*/
+/*  }*/
+
+/*  .button__meat {*/
+/*    left: 329px;*/
+/*    top: -54px;*/
+/*    width: 154px;*/
+/*  }*/
+
+/*  .button__place {*/
+/*    margin-top: -17px;*/
+/*  }*/
+
+/*  .pepper.show {*/
+/*    top: 136px;*/
+/*    right: 31vw;*/
+/*  }*/
+
+/*  .pepper img {*/
+/*    width: 381px;*/
+/*  }*/
+
+/*  .social {*/
+/*    margin-top: 141px;*/
+/*    margin-left: 106px;*/
+/*    font-size: 14.5px;*/
+/*  }*/
+
+/*  .social a {*/
+/*    margin-right: 38px;*/
+/*  }*/
+
+/*  .social__hr {*/
+/*    margin: 8px 0 4px 55px;*/
+/*    width: 194px;*/
+/*  }*/
+
+/*  .food img {*/
+/*    width: 1491px;*/
+/*  }*/
+
+/*  .food {*/
+/*    top: -218px;*/
+/*  }*/
+
+/*  .food.show {*/
+/*    right: -38vw;*/
+/*  }*/
+/*}*/
